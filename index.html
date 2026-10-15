@@ -1,0 +1,1417 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bản Đồ Đào Tạo Tiếng Anh Xuyên Suốt - Multi-Style Visualization</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['Outfit', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            brandMint: { 50: '#f0fdf9', 100: '#ccfbf1', 500: '#14b8a6', 600: '#0d9488', 700: '#0f766e', 900: '#134e4a' },
+            brandAmber: { 50: '#fffbeb', 100: '#fef3c7', 500: '#f59e0b', 600: '#d97706', 700: '#b45309', 900: '#78350f' },
+            brandNavy: { 50: '#eef2ff', 100: '#e0e7ff', 500: '#6366f1', 600: '#4f46e5', 700: '#4338ca', 900: '#1e1b4b' },
+            brandRuby: { 50: '#fff1f2', 100: '#ffe4e6', 500: '#f43f5e', 600: '#e11d48', 700: '#be123c', 800: '#9f1239', 900: '#881337' },
+          },
+          boxShadow: {
+            'glow-mint': '0 0 25px -5px rgba(20, 184, 166, 0.4)',
+            'glow-amber': '0 0 25px -5px rgba(245, 158, 11, 0.4)',
+            'glow-navy': '0 0 25px -5px rgba(79, 70, 229, 0.4)',
+            'glow-ruby': '0 0 30px -5px rgba(225, 29, 72, 0.45)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Gradient line animation */
+    @keyframes pulseLine {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+    .animate-pulse-line {
+      animation: pulseLine 2.5s infinite ease-in-out;
+    }
+
+    /* Metro map track */
+    .metro-track {
+      background: repeating-linear-gradient(90deg, #d97706, #d97706 14px, #fef3c7 14px, #fef3c7 24px);
+    }
+
+    /* Custom Glass */
+    .glass-panel {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(14px);
+    }
+
+    /* Card Micro Hover */
+    .interactive-card {
+      transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .interactive-card:hover {
+      transform: translateY(-6px);
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-brandRuby-600 selection:text-white font-sans">
+
+  <!-- Top Announcement Bar -->
+  <div class="bg-slate-900 text-slate-300 py-2 px-4 text-center text-xs font-medium border-b border-slate-800">
+    <div class="max-w-6xl mx-auto flex items-center justify-center gap-2">
+      <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-brandRuby-600 text-white uppercase tracking-wider animate-pulse">Trực Quan 1 Chiều</span>
+      <span>Hệ Thống Bản Đồ 6 Chặng Đào Tạo Tiếng Anh Liên Tục Từ 4 Tuổi Đến 7.5+ IELTS</span>
+    </div>
+  </div>
+
+  <!-- Global Header -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brandMint-600 via-brandNavy-600 to-brandRuby-600 flex items-center justify-center text-white shadow-md">
+          <i data-lucide="route" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <h1 class="text-base sm:text-lg font-heading font-black text-slate-900 tracking-tight leading-tight uppercase">
+            Bản Đồ Lộ Trình Đào Tạo Anh Ngữ
+          </h1>
+          <p class="text-[11px] sm:text-xs text-slate-500 font-medium">Số hóa trực quan theo từng giai đoạn phát triển tự nhiên</p>
+        </div>
+      </div>
+
+      <!-- Quick Section Jumpers -->
+      <div class="hidden md:flex items-center gap-2 text-xs font-bold">
+        <a href="#lo-trinh-1" class="px-3 py-2 rounded-xl text-brandMint-900 bg-brandMint-50 border border-brandMint-200/70 hover:bg-brandMint-100 transition flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-brandMint-600"></span>
+          LỘ TRÌNH 1: Tiền TH &rarr; THCS
+        </a>
+        <a href="#lo-trinh-2" class="px-3 py-2 rounded-xl text-brandRuby-900 bg-brandRuby-50 border border-brandRuby-200/70 hover:bg-brandRuby-100 transition flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-brandRuby-600"></span>
+          LỘ TRÌNH 2: IELTS Master
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sticky Floating Outline Navigator (Desktop Right Side) -->
+  <aside class="hidden xl:block fixed right-6 top-32 z-30 w-56 p-4 rounded-2xl bg-white/90 backdrop-blur-md border border-slate-200 shadow-xl">
+    <div class="text-[11px] font-black uppercase tracking-wider text-slate-400 mb-3 flex items-center gap-1.5">
+      <i data-lucide="compass" class="w-3.5 h-3.5 text-slate-600"></i> Điều hướng nhanh
+    </div>
+    <nav class="space-y-1.5 text-xs font-semibold">
+      <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider pt-1">Lộ trình 1</div>
+      <a href="#ch-1-hinh-thanh" class="group flex items-center gap-2 p-1.5 rounded-lg text-slate-600 hover:text-brandMint-700 hover:bg-brandMint-50 transition">
+        <span class="w-2 h-2 rounded-full bg-brandMint-500"></span>
+        <span class="truncate">Chặng 1: Hàng Ngang Bậc Thang</span>
+      </a>
+      <a href="#ch-2-ky-nang" class="group flex items-center gap-2 p-1.5 rounded-lg text-slate-600 hover:text-brandAmber-700 hover:bg-brandAmber-50 transition">
+        <span class="w-2 h-2 rounded-full bg-brandAmber-500"></span>
+        <span class="truncate">Chặng 2: Tuyến Ga Cambridge</span>
+      </a>
+      <a href="#ch-3-hoc-thuat" class="group flex items-center gap-2 p-1.5 rounded-lg text-slate-600 hover:text-brandNavy-700 hover:bg-brandNavy-50 transition">
+        <span class="w-2 h-2 rounded-full bg-brandNavy-600"></span>
+        <span class="truncate">Chặng 3: Trụ Cột Năng Lực THCS</span>
+      </a>
+
+      <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider pt-3">Lộ trình 2</div>
+      <a href="#ch-4-ielts-chay-da" class="group flex items-center gap-2 p-1.5 rounded-lg text-slate-600 hover:text-cyan-700 hover:bg-cyan-50 transition">
+        <span class="w-2 h-2 rounded-full bg-cyan-600"></span>
+        <span class="truncate">Chặng 1: Cặp Đo Lường Vào - Ra</span>
+      </a>
+      <a href="#ch-5-ielts-tang-toc" class="group flex items-center gap-2 p-1.5 rounded-lg text-slate-600 hover:text-orange-700 hover:bg-orange-50 transition">
+        <span class="w-2 h-2 rounded-full bg-orange-500"></span>
+        <span class="truncate">Chặng 2: Bệ Phóng Sprint 2.5T</span>
+      </a>
+      <a href="#ch-6-ielts-ve-dich" class="group flex items-center gap-2 p-1.5 rounded-lg text-slate-600 hover:text-brandRuby-700 hover:bg-brandRuby-50 transition">
+        <span class="w-2 h-2 rounded-full bg-brandRuby-600"></span>
+        <span class="truncate">Chặng 3: Đỉnh Vinh Quang 6.5+</span>
+      </a>
+    </nav>
+  </aside>
+
+  <!-- Hero Banner Intro -->
+  <section class="py-10 bg-gradient-to-b from-white via-slate-50 to-slate-100 border-b border-slate-200">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-indigo-50 text-indigo-700 border border-indigo-200 mb-3">
+        <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Thiết Kế Đa Dạng Trực Quan Hóa (Multi-Style UI)
+      </div>
+      <h2 class="text-2xl sm:text-4xl font-heading font-black text-slate-900 tracking-tight leading-tight">
+        Hành Trình Chinh Phục Anh Ngữ Không Điểm Nghẽn
+      </h2>
+      <p class="mt-2.5 text-xs sm:text-sm text-slate-600 max-w-2xl mx-auto leading-relaxed">
+        Cuộn chuột từ trên xuống dưới để trải nghiệm từng hình thái lộ trình trực quan: từ bậc thang mầm non, tuyến trạm dừng Cambridge tiểu học đến bục vinh quang IELTS Master.
+      </p>
+      <div class="mt-4 flex flex-wrap justify-center items-center gap-3 text-xs text-slate-500">
+        <span class="inline-flex items-center gap-1"><i data-lucide="mouse-pointer-click" class="w-3.5 h-3.5 text-brandRuby-600"></i> Bấm vào thẻ bất kỳ để mở chi tiết</span>
+        <span class="hidden sm:inline">•</span>
+        <span class="inline-flex items-center gap-1"><i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600"></i> Cam kết chuẩn đầu ra quốc tế</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN SCROLL CONTAINER -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-28">
+
+    <!-- ========================================================================= -->
+    <!-- TIÊU ĐỀ LỚN 1: LỘ TRÌNH 1                                                -->
+    <!-- ========================================================================= -->
+    <section id="lo-trinh-1" class="scroll-mt-28 space-y-16">
+      
+      <!-- Big Header Banner 1 -->
+      <div class="relative rounded-3xl p-6 sm:p-10 bg-gradient-to-r from-teal-900 via-slate-900 to-indigo-950 text-white shadow-xl overflow-hidden border border-brandMint-500/30">
+        <div class="absolute -right-10 -bottom-10 w-72 h-72 bg-brandMint-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-wider bg-brandMint-500/20 text-brandMint-300 border border-brandMint-500/30 mb-2">
+              <i data-lucide="flag" class="w-3.5 h-3.5"></i> TIÊU ĐỀ LỚN 1
+            </span>
+            <h2 class="text-2xl sm:text-4xl font-heading font-black tracking-tight uppercase text-white">
+              LỘ TRÌNH 1: TIẾNG ANH TIỀN TIỂU HỌC ĐẾN THCS
+            </h2>
+            <p class="mt-2 text-xs sm:text-sm text-slate-300 max-w-2xl leading-relaxed">
+              Xây dựng phản xạ đa giác quan mầm non, làm chủ các kỳ thi khảo thí Cambridge Tiểu học và bồi dưỡng bản lĩnh học thuật vững chắc cấp THCS.
+            </p>
+          </div>
+          <div class="shrink-0 flex items-center gap-2 bg-white/10 px-4 py-3 rounded-2xl border border-white/10">
+            <i data-lucide="layers" class="w-6 h-6 text-brandMint-400"></i>
+            <div class="text-left text-xs">
+              <span class="block text-slate-400 font-bold uppercase text-[10px]">Cấu trúc</span>
+              <span class="font-extrabold text-white text-sm">3 Chặng Tuyến Tính</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- --------------------------------------------------------------------- -->
+      <!-- CHẶNG 1: KIỂU HÀNG NGANG BẬC THANG NỐI TIẾP (STEPPER CHAIN)           -->
+      <!-- --------------------------------------------------------------------- -->
+      <div id="ch-1-hinh-thanh" class="scroll-mt-32 space-y-6">
+        
+        <!-- Chặng Title Card -->
+        <div class="bg-brandMint-50/70 border-2 border-brandMint-500/30 rounded-2xl p-5 sm:p-6 shadow-xs">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-brandMint-200/80 pb-4 mb-4">
+            <div class="flex items-center gap-3">
+              <span class="w-10 h-10 rounded-xl bg-brandMint-600 text-white font-black text-lg flex items-center justify-center shadow-md">01</span>
+              <div>
+                <span class="text-[11px] font-bold text-brandMint-700 uppercase tracking-widest block">Giai Đoạn Mầm Non (4 - 6 Tuổi)</span>
+                <h3 class="text-lg sm:text-2xl font-heading font-black text-slate-900 uppercase">
+                  CHẶNG 1: HÌNH THÀNH NGÔN NGỮ (TIỀN TIỂU HỌC)
+                </h3>
+              </div>
+            </div>
+            <span class="self-start sm:self-auto px-3.5 py-1.5 rounded-full text-xs font-black bg-brandMint-600 text-white shadow-xs flex items-center gap-1.5">
+              <i data-lucide="footprints" class="w-3.5 h-3.5"></i> Bước Chân Làm Quen Tiếng Anh
+            </span>
+          </div>
+
+          <!-- Chặng Core Objectives -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs text-slate-700">
+            <div class="flex items-start gap-2 bg-white/90 p-3 rounded-xl border border-brandMint-200/60 shadow-xs">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-brandMint-600 shrink-0 mt-0.5"></i>
+              <span>Làm quen với ngôn ngữ, học chữ cái, phát âm cơ bản chuẩn IPA</span>
+            </div>
+            <div class="flex items-start gap-2 bg-white/90 p-3 rounded-xl border border-brandMint-200/60 shadow-xs">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-brandMint-600 shrink-0 mt-0.5"></i>
+              <span>Nhận biết các từ vựng thân quen xung quanh thế giới của bé</span>
+            </div>
+            <div class="flex items-start gap-2 bg-white/90 p-3 rounded-xl border border-brandMint-200/60 shadow-xs">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-brandMint-600 shrink-0 mt-0.5"></i>
+              <span>Bước đầu rèn luyện phản xạ nghe - nói phản ứng tự nhiên</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- STYLE 1: HORIZONTAL STEPPER CARDS WITH ARROW CONNECTORS -->
+        <div class="relative pt-2">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
+            
+            <!-- Step 1: Kiddie (4 Tuổi) -->
+            <div onclick="openCourseModal('kiddie')" class="interactive-card cursor-pointer group rounded-3xl bg-white border-2 border-brandMint-200 hover:border-brandMint-500 hover:shadow-glow-mint p-6 shadow-sm flex flex-col justify-between relative overflow-hidden">
+              <div class="absolute -right-4 -top-4 w-20 h-20 bg-brandMint-100 rounded-full opacity-50 group-hover:scale-125 transition"></div>
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-brandMint-100 text-brandMint-900 font-extrabold text-xs">
+                    <i data-lucide="baby" class="w-3.5 h-3.5 text-brandMint-600"></i> 4 Tuổi
+                  </span>
+                  <span class="text-[11px] font-bold text-slate-400 group-hover:text-brandMint-600 transition flex items-center gap-1">
+                    Chi tiết <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                  </span>
+                </div>
+                <div class="w-12 h-12 rounded-2xl bg-brandMint-50 text-brandMint-600 flex items-center justify-center font-black text-xl mb-3 border border-brandMint-200">
+                  01
+                </div>
+                <h4 class="text-xl font-heading font-black text-slate-900 group-hover:text-brandMint-700 transition">
+                  Khóa Kiddie (4 Tuổi)
+                </h4>
+                <p class="text-xs sm:text-sm text-slate-600 mt-2.5 leading-relaxed">
+                  Con được làm quen với tiếng Anh tự nhiên, hình thành phản xạ ngôn ngữ thông qua nhận biết hình ảnh, âm thanh, kích thích giác quan và vận động TPR.
+                </p>
+              </div>
+
+              <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-brandMint-700">
+                <span>Phản xạ đa giác quan</span>
+                <i data-lucide="sparkle" class="w-4 h-4 text-brandMint-500"></i>
+              </div>
+            </div>
+
+            <!-- Step 2: Birdie (5 Tuổi) -->
+            <div onclick="openCourseModal('birdie')" class="interactive-card cursor-pointer group rounded-3xl bg-white border-2 border-brandMint-200 hover:border-brandMint-500 hover:shadow-glow-mint p-6 shadow-sm flex flex-col justify-between relative overflow-hidden">
+              <div class="absolute -right-4 -top-4 w-20 h-20 bg-brandMint-100 rounded-full opacity-50 group-hover:scale-125 transition"></div>
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-brandMint-100 text-brandMint-900 font-extrabold text-xs">
+                    <i data-lucide="book" class="w-3.5 h-3.5 text-brandMint-600"></i> 5 Tuổi
+                  </span>
+                  <span class="text-[11px] font-bold text-slate-400 group-hover:text-brandMint-600 transition flex items-center gap-1">
+                    Chi tiết <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                  </span>
+                </div>
+                <div class="w-12 h-12 rounded-2xl bg-brandMint-50 text-brandMint-600 flex items-center justify-center font-black text-xl mb-3 border border-brandMint-200">
+                  02
+                </div>
+                <h4 class="text-xl font-heading font-black text-slate-900 group-hover:text-brandMint-700 transition">
+                  Khóa Birdie (5 Tuổi)
+                </h4>
+                <p class="text-xs sm:text-sm text-slate-600 mt-2.5 leading-relaxed">
+                  Mở rộng từ vựng, ngữ pháp cơ bản, tăng cường kỹ năng đọc và viết bên cạnh nghe - nói. Bắt đầu viết và nhận diện mặt chữ cái, từ vựng ngắn.
+                </p>
+              </div>
+
+              <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-brandMint-700">
+                <span>Nhận diện mặt chữ & viết từ</span>
+                <i data-lucide="pencil" class="w-4 h-4 text-brandMint-500"></i>
+              </div>
+            </div>
+
+            <!-- Step 3: Newbie (6 Tuổi) -->
+            <div onclick="openCourseModal('newbie')" class="interactive-card cursor-pointer group rounded-3xl bg-white border-2 border-brandMint-300 hover:border-brandMint-600 hover:shadow-glow-mint p-6 shadow-sm flex flex-col justify-between relative overflow-hidden bg-gradient-to-b from-white to-brandMint-50/40">
+              <div class="absolute -right-4 -top-4 w-20 h-20 bg-brandMint-200/50 rounded-full opacity-50 group-hover:scale-125 transition"></div>
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-brandMint-600 text-white font-extrabold text-xs">
+                    <i data-lucide="graduation-cap" class="w-3.5 h-3.5"></i> 6 Tuổi (Tiền Lớp 1)
+                  </span>
+                  <span class="text-[11px] font-bold text-slate-400 group-hover:text-brandMint-600 transition flex items-center gap-1">
+                    Chi tiết <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                  </span>
+                </div>
+                <div class="w-12 h-12 rounded-2xl bg-brandMint-600 text-white flex items-center justify-center font-black text-xl mb-3 shadow-sm">
+                  03
+                </div>
+                <h4 class="text-xl font-heading font-black text-slate-900 group-hover:text-brandMint-700 transition">
+                  Khóa Newbie (6 Tuổi)
+                </h4>
+                <p class="text-xs sm:text-sm text-slate-600 mt-2.5 leading-relaxed">
+                  Nhận diện trọn bộ chữ cái & số, làm quen chủ đề thân thuộc. Tự tin nói - viết câu đơn giản và sẵn sàng chuyển tiếp vững vàng vào Lớp 1.
+                </p>
+              </div>
+
+              <div class="mt-5 pt-4 border-t border-brandMint-200 flex items-center justify-between text-xs font-black text-brandMint-800">
+                <span>Bệ phóng tự tin vào Lớp 1</span>
+                <i data-lucide="check-check" class="w-4 h-4 text-brandMint-600"></i>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- --------------------------------------------------------------------- -->
+      <!-- CHẶNG 2: KIỂU TUYẾN TRẠM DỪNG CAMBRIDGE (METRO STATION / MILESTONES)  -->
+      <!-- --------------------------------------------------------------------- -->
+      <div id="ch-2-ky-nang" class="scroll-mt-32 space-y-6">
+        
+        <!-- Chặng Title Card -->
+        <div class="bg-brandAmber-50/70 border-2 border-brandAmber-500/30 rounded-2xl p-5 sm:p-6 shadow-xs">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-brandAmber-200/80 pb-4 mb-4">
+            <div class="flex items-center gap-3">
+              <span class="w-10 h-10 rounded-xl bg-brandAmber-600 text-white font-black text-lg flex items-center justify-center shadow-md">02</span>
+              <div>
+                <span class="text-[11px] font-bold text-brandAmber-700 uppercase tracking-widest block">Giai Đoạn Tiểu Học (6 - 10 Tuổi)</span>
+                <h3 class="text-lg sm:text-2xl font-heading font-black text-slate-900 uppercase">
+                  CHẶNG 2: PHÁT TRIỂN KỸ NĂNG (TIẾNG ANH TIỂU HỌC)
+                </h3>
+              </div>
+            </div>
+            <span class="self-start sm:self-auto px-3.5 py-1.5 rounded-full text-xs font-black bg-brandAmber-600 text-white shadow-xs flex items-center gap-1.5">
+              <i data-lucide="award" class="w-3.5 h-3.5"></i> Tuyến Trạm Dừng Cambridge Quốc Tế
+            </span>
+          </div>
+
+          <!-- Chặng Core Objectives -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs text-slate-700">
+            <div class="flex items-start gap-2 bg-white/90 p-3 rounded-xl border border-brandAmber-200/60 shadow-xs">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-brandAmber-600 shrink-0 mt-0.5"></i>
+              <span>Vận dụng từ vựng & mẫu câu giao tiếp theo chủ đề quen thuộc</span>
+            </div>
+            <div class="flex items-start gap-2 bg-white/90 p-3 rounded-xl border border-brandAmber-200/60 shadow-xs">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-brandAmber-600 shrink-0 mt-0.5"></i>
+              <span>Đọc hiểu thông tin, tài liệu và các hướng dẫn cơ bản</span>
+            </div>
+            <div class="flex items-start gap-2 bg-white/90 p-3 rounded-xl border border-brandAmber-200/60 shadow-xs">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-brandAmber-600 shrink-0 mt-0.5"></i>
+              <span>Kể chuyện ngắn bằng tiếng Anh & thi chứng chỉ Cambridge (Starters, Movers, Flyers)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- STYLE 2: METRO STATION ROAD / MILESTONE BADGE CARDS -->
+        <div class="relative py-4">
+          
+          <!-- Track line for desktop -->
+          <div class="hidden lg:block absolute top-12 left-8 right-8 h-2 metro-track rounded-full z-0"></div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
+            
+            <!-- Station 1: Explorer 1 -->
+            <div onclick="openCourseModal('explorer1')" class="interactive-card cursor-pointer group bg-white border-2 border-brandAmber-200 hover:border-brandAmber-500 rounded-3xl p-5 shadow-sm hover:shadow-glow-amber flex flex-col justify-between">
+              <div>
+                <!-- Station Badge -->
+                <div class="flex items-center justify-between mb-3">
+                  <div class="w-10 h-10 rounded-full bg-brandAmber-100 border-4 border-brandAmber-500 flex items-center justify-center font-black text-brandAmber-900 text-xs shadow-xs">
+                    01
+                  </div>
+                  <span class="px-2.5 py-1 rounded-lg bg-brandAmber-50 text-brandAmber-800 text-[11px] font-black border border-brandAmber-200">
+                    6 - 7 Tuổi
+                  </span>
+                </div>
+                <h4 class="text-lg font-heading font-black text-slate-900 group-hover:text-brandAmber-700 transition">
+                  Explorer 1
+                </h4>
+                <div class="mt-2 text-xs font-semibold text-slate-500 flex items-center gap-1">
+                  <i data-lucide="map-pin" class="w-3.5 h-3.5 text-brandAmber-600"></i> Ga Khởi Động Tiểu Học
+                </div>
+                
+                <div class="mt-4 p-3 rounded-2xl bg-brandAmber-50/80 border border-brandAmber-200/60 text-xs">
+                  <span class="font-extrabold text-brandAmber-900 block mb-1">Mục tiêu đầu ra:</span>
+                  <p class="text-slate-700 leading-relaxed">
+                    Khả năng sử dụng <strong>80% từ vựng</strong> đã học trong giao tiếp hàng ngày tự nhiên.
+                  </p>
+                </div>
+              </div>
+
+              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-bold text-brandAmber-700">
+                <span>Xem chuẩn kiến thức</span>
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+              </div>
+            </div>
+
+            <!-- Station 2: Explorer 2 (Starters) -->
+            <div onclick="openCourseModal('explorer2')" class="interactive-card cursor-pointer group bg-white border-2 border-brandAmber-300 hover:border-brandAmber-600 rounded-3xl p-5 shadow-sm hover:shadow-glow-amber flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-3">
+                  <div class="w-10 h-10 rounded-full bg-amber-500 border-4 border-white ring-2 ring-amber-500 flex items-center justify-center font-black text-white text-xs shadow-xs">
+                    02
+                  </div>
+                  <span class="px-2.5 py-1 rounded-lg bg-emerald-100 text-emerald-800 text-[11px] font-black border border-emerald-300 flex items-center gap-1">
+                    <i data-lucide="shield" class="w-3 h-3"></i> Starters
+                  </span>
+                </div>
+                <h4 class="text-lg font-heading font-black text-slate-900 group-hover:text-brandAmber-700 transition">
+                  Explorer 2
+                </h4>
+                <div class="mt-2 text-xs font-semibold text-slate-500 flex items-center gap-1">
+                  <i data-lucide="map-pin" class="w-3.5 h-3.5 text-brandAmber-600"></i> Độ tuổi: 7 - 8 Tuổi
+                </div>
+
+                <div class="mt-4 p-3 rounded-2xl bg-amber-50/80 border border-amber-200/80 text-xs">
+                  <span class="font-extrabold text-amber-900 block mb-1">Mục tiêu đầu ra:</span>
+                  <p class="text-slate-700 leading-relaxed">
+                    Hoàn thành bậc <strong>Starters</strong> theo chuẩn khảo thí Cambridge (10 - 15 khiên).
+                  </p>
+                </div>
+              </div>
+
+              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-bold text-brandAmber-700">
+                <span>Chuẩn Pre-A1 Châu Âu</span>
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+              </div>
+            </div>
+
+            <!-- Station 3: Explorer 3 (Movers) -->
+            <div onclick="openCourseModal('explorer3')" class="interactive-card cursor-pointer group bg-white border-2 border-brandAmber-300 hover:border-brandAmber-600 rounded-3xl p-5 shadow-sm hover:shadow-glow-amber flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-3">
+                  <div class="w-10 h-10 rounded-full bg-amber-600 border-4 border-white ring-2 ring-amber-600 flex items-center justify-center font-black text-white text-xs shadow-xs">
+                    03
+                  </div>
+                  <span class="px-2.5 py-1 rounded-lg bg-emerald-100 text-emerald-800 text-[11px] font-black border border-emerald-300 flex items-center gap-1">
+                    <i data-lucide="shield" class="w-3 h-3"></i> Movers
+                  </span>
+                </div>
+                <h4 class="text-lg font-heading font-black text-slate-900 group-hover:text-brandAmber-700 transition">
+                  Explorer 3
+                </h4>
+                <div class="mt-2 text-xs font-semibold text-slate-500 flex items-center gap-1">
+                  <i data-lucide="map-pin" class="w-3.5 h-3.5 text-brandAmber-600"></i> Độ tuổi: 8 - 9 Tuổi
+                </div>
+
+                <div class="mt-4 p-3 rounded-2xl bg-amber-50/80 border border-amber-200/80 text-xs">
+                  <span class="font-extrabold text-amber-900 block mb-1">Mục tiêu đầu ra:</span>
+                  <p class="text-slate-700 leading-relaxed">
+                    Hoàn thành bậc <strong>Movers</strong> theo chuẩn khảo thí của Cambridge; đọc hiểu & kể chuyện.
+                  </p>
+                </div>
+              </div>
+
+              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-bold text-brandAmber-700">
+                <span>Chuẩn A1 Cambridge</span>
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+              </div>
+            </div>
+
+            <!-- Station 4: Explorer 4 (Flyers) -->
+            <div onclick="openCourseModal('explorer4')" class="interactive-card cursor-pointer group bg-gradient-to-b from-white to-amber-50/50 border-2 border-brandAmber-400 hover:border-brandAmber-600 rounded-3xl p-5 shadow-sm hover:shadow-glow-amber flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-3">
+                  <div class="w-10 h-10 rounded-full bg-brandAmber-700 border-4 border-white ring-2 ring-brandAmber-700 flex items-center justify-center font-black text-white text-xs shadow-md">
+                    04
+                  </div>
+                  <span class="px-2.5 py-1 rounded-lg bg-brandAmber-600 text-white text-[11px] font-black shadow-xs flex items-center gap-1">
+                    <i data-lucide="trophy" class="w-3 h-3"></i> Flyers
+                  </span>
+                </div>
+                <h4 class="text-lg font-heading font-black text-slate-900 group-hover:text-brandAmber-700 transition">
+                  Explorer 4
+                </h4>
+                <div class="mt-2 text-xs font-semibold text-slate-500 flex items-center gap-1">
+                  <i data-lucide="map-pin" class="w-3.5 h-3.5 text-brandAmber-600"></i> Độ tuổi: 9 - 10 Tuổi
+                </div>
+
+                <div class="mt-4 p-3 rounded-2xl bg-amber-100/70 border border-amber-300 text-xs">
+                  <span class="font-extrabold text-amber-950 block mb-1">Mục tiêu đầu ra:</span>
+                  <p class="text-slate-800 leading-relaxed">
+                    Hoàn thành bậc <strong>Flyers</strong> theo chuẩn khảo thí của Cambridge; nền tảng bước vào THCS.
+                  </p>
+                </div>
+              </div>
+
+              <div class="mt-4 pt-3 border-t border-amber-200 flex items-center justify-between text-[11px] font-black text-brandAmber-900">
+                <span>Chuẩn A2 Cambridge</span>
+                <i data-lucide="chevron-right" class="w-4 h-4 text-brandAmber-600"></i>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- --------------------------------------------------------------------- -->
+      <!-- CHẶNG 3: KIỂU BẬC THANG CỘT TRỤ HỌC THUẬT (VERTICAL POWER PILLARS)    -->
+      <!-- --------------------------------------------------------------------- -->
+      <div id="ch-3-hoc-thuat" class="scroll-mt-32 space-y-6">
+        
+        <!-- Chặng Title Card -->
+        <div class="bg-brandNavy-50/70 border-2 border-brandNavy-500/30 rounded-2xl p-5 sm:p-6 shadow-xs">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-brandNavy-200/80 pb-4 mb-4">
+            <div class="flex items-center gap-3">
+              <span class="w-10 h-10 rounded-xl bg-brandNavy-700 text-white font-black text-lg flex items-center justify-center shadow-md">03</span>
+              <div>
+                <span class="text-[11px] font-bold text-brandNavy-700 uppercase tracking-widest block">Giai Đoạn Cấp 2 (Lớp 6 - Lớp 9)</span>
+                <h3 class="text-lg sm:text-2xl font-heading font-black text-slate-900 uppercase">
+                  CHẶNG 3: PHÁT TRIỂN HỌC THUẬT (TIẾNG ANH THCS)
+                </h3>
+              </div>
+            </div>
+            <span class="self-start sm:self-auto px-3.5 py-1.5 rounded-full text-xs font-black bg-brandNavy-700 text-white shadow-xs flex items-center gap-1.5">
+              <i data-lucide="trending-up" class="w-3.5 h-3.5"></i> Cột Năng Lực & Luyện Thi Vào 10
+            </span>
+          </div>
+
+          <!-- Chặng Core Objectives -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs text-slate-700">
+            <div class="flex items-start gap-2 bg-white/90 p-3 rounded-xl border border-brandNavy-200/60 shadow-xs">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-brandNavy-600 shrink-0 mt-0.5"></i>
+              <span>Hệ thống hóa toàn bộ ngữ pháp nền tảng THCS</span>
+            </div>
+            <div class="flex items-start gap-2 bg-white/90 p-3 rounded-xl border border-brandNavy-200/60 shadow-xs">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-brandNavy-600 shrink-0 mt-0.5"></i>
+              <span>Tập trung các chủ đề từ vựng mở rộng & trừu tượng</span>
+            </div>
+            <div class="flex items-start gap-2 bg-white/90 p-3 rounded-xl border border-brandNavy-200/60 shadow-xs">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-brandNavy-600 shrink-0 mt-0.5"></i>
+              <span>Trang bị chiến thuật xử lý đề thi học kỳ & chuyển cấp</span>
+            </div>
+            <div class="flex items-start gap-2 bg-white/90 p-3 rounded-xl border border-brandNavy-200/60 shadow-xs">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-brandNavy-600 shrink-0 mt-0.5"></i>
+              <span>Phát triển toàn diện 4 kĩ năng: Nghe - Nói - Đọc - Viết</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- STYLE 3: ACADEMIC POWER PILLARS (Ascending Height Ladder) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-end pt-4">
+          
+          <!-- Pillar 1: Pioneer Foundation (Lớp 6) -->
+          <div onclick="openCourseModal('pioneerFoundation')" class="interactive-card cursor-pointer group bg-white border-2 border-brandNavy-200 hover:border-brandNavy-600 rounded-3xl p-5 shadow-sm hover:shadow-glow-navy flex flex-col justify-between min-h-[310px]">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="px-2.5 py-1 rounded-lg bg-brandNavy-100 text-brandNavy-900 font-extrabold text-xs">
+                  Lớp 6 BGD
+                </span>
+                <span class="text-[11px] font-bold text-slate-400 group-hover:text-brandNavy-600">Bậc 1</span>
+              </div>
+              <h4 class="text-lg font-heading font-black text-slate-900 group-hover:text-brandNavy-700 transition">
+                Pioneer Foundation
+              </h4>
+              <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                Hệ thống hóa kiến thức nền tảng lớp 6 của BGD. Con được định hình kĩ năng nghe - nói - đọc - viết và làm quen với các chiến thuật xử lý các dạng bài vận dụng.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-brandNavy-700">
+              <span>Định hình kỹ năng</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </div>
+          </div>
+
+          <!-- Pillar 2: Pioneer Plus (Lớp 7) -->
+          <div onclick="openCourseModal('pioneerPlus')" class="interactive-card cursor-pointer group bg-white border-2 border-brandNavy-300 hover:border-brandNavy-600 rounded-3xl p-5 shadow-sm hover:shadow-glow-navy flex flex-col justify-between min-h-[340px]">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="px-2.5 py-1 rounded-lg bg-brandNavy-100 text-brandNavy-900 font-extrabold text-xs">
+                  Lớp 7 Mở Rộng
+                </span>
+                <span class="text-[11px] font-bold text-slate-400 group-hover:text-brandNavy-600">Bậc 2</span>
+              </div>
+              <h4 class="text-lg font-heading font-black text-slate-900 group-hover:text-brandNavy-700 transition">
+                Pioneer Plus
+              </h4>
+              <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                Hệ thống hóa kiến thức nền tảng lớp 7, chủ đề từ vựng và ngữ pháp được mở rộng. Tăng tư duy xử lý các bài tập có tính vận dụng thực tế.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-brandNavy-700">
+              <span>Tư duy vận dụng cao</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </div>
+          </div>
+
+          <!-- Pillar 3: Pioneer Intensive (Lớp 8) -->
+          <div onclick="openCourseModal('pioneerIntensive')" class="interactive-card cursor-pointer group bg-white border-2 border-brandNavy-400 hover:border-brandNavy-700 rounded-3xl p-5 shadow-sm hover:shadow-glow-navy flex flex-col justify-between min-h-[370px]">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="px-2.5 py-1 rounded-lg bg-brandNavy-200 text-brandNavy-950 font-extrabold text-xs">
+                  Lớp 8 Chuyên Sâu
+                </span>
+                <span class="text-[11px] font-bold text-slate-400 group-hover:text-brandNavy-600">Bậc 3</span>
+              </div>
+              <h4 class="text-lg font-heading font-black text-slate-900 group-hover:text-brandNavy-700 transition">
+                Pioneer Intensive
+              </h4>
+              <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                Hệ thống hóa kiến thức nền tảng lớp 8, mở rộng biên độ kiến thức và phát triển kĩ năng giao tiếp sang các chủ đề chuyên sâu và trừu tượng hơn.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-brandNavy-700">
+              <span>Chủ đề trừu tượng</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </div>
+          </div>
+
+          <!-- Pillar 4: Pioneer Master (Lớp 9 & Thi vào 10) -->
+          <div onclick="openCourseModal('pioneerMaster')" class="interactive-card cursor-pointer group bg-gradient-to-b from-brandNavy-900 to-slate-900 text-white border-2 border-indigo-400 hover:border-indigo-300 rounded-3xl p-5 shadow-md hover:shadow-glow-navy flex flex-col justify-between min-h-[400px]">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="px-2.5 py-1 rounded-lg bg-indigo-500/30 text-indigo-300 font-extrabold text-xs border border-indigo-500/40">
+                  Lớp 9 Vào 10
+                </span>
+                <span class="inline-flex items-center gap-1 text-[11px] font-bold text-amber-300">
+                  <i data-lucide="crown" class="w-3.5 h-3.5"></i> Đỉnh Cao THCS
+                </span>
+              </div>
+              <h4 class="text-lg font-heading font-black text-white group-hover:text-indigo-300 transition">
+                Pioneer Master
+              </h4>
+              <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+                Hệ thống hóa kiến thức nền tảng lớp 9, làm chủ chiến thuật xử lý các dạng bài trong đề thi vào 10. Con được nâng cao 4 kỹ năng giao tiếp: nghe - nói - đọc - viết.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-700 flex items-center justify-between text-xs font-black text-indigo-300">
+              <span>Đỗ Nguyện Vọng 1 & Chuyên</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4 text-amber-300"></i>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- TRANSITION DIVIDER SECTION -->
+    <div class="relative py-6 flex items-center justify-center">
+      <div class="absolute inset-0 flex items-center">
+        <div class="w-full border-t-2 border-dashed border-slate-300"></div>
+      </div>
+      <div class="relative bg-slate-900 text-white px-6 py-3 rounded-full text-xs sm:text-sm font-heading font-black tracking-wider uppercase shadow-xl flex items-center gap-2 border border-slate-700">
+        <i data-lucide="sparkles" class="w-4 h-4 text-brandRuby-500 animate-spin"></i>
+        <span>Chuyển Sang Lộ Trình Luyện Thi Chứng Chỉ Quốc Tế</span>
+        <i data-lucide="arrow-down" class="w-4 h-4 text-brandRuby-400"></i>
+      </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- TIÊU ĐỀ LỚN 2: LỘ TRÌNH 2                                                -->
+    <!-- ========================================================================= -->
+    <section id="lo-trinh-2" class="scroll-mt-28 space-y-16">
+      
+      <!-- Big Header Banner 2 -->
+      <div class="relative rounded-3xl p-6 sm:p-10 bg-gradient-to-r from-brandRuby-950 via-slate-900 to-red-950 text-white shadow-xl overflow-hidden border border-brandRuby-500/30">
+        <div class="absolute -right-10 -bottom-10 w-72 h-72 bg-brandRuby-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-wider bg-brandRuby-500/20 text-brandRuby-300 border border-brandRuby-500/30 mb-2">
+              <i data-lucide="flame" class="w-3.5 h-3.5 text-brandRuby-400"></i> TIÊU ĐỀ LỚN 2
+            </span>
+            <h2 class="text-2xl sm:text-4xl font-heading font-black tracking-tight uppercase text-white">
+              LỘ TRÌNH 2: IELTS MASTER DÀNH CHO THCS & TIỀN THPT
+            </h2>
+            <p class="mt-2 text-xs sm:text-sm text-slate-300 max-w-2xl leading-relaxed">
+              Thiết kế chuyên biệt cho lứa tuổi trung học cơ sở và chuẩn bị vào cấp 3: Bồi đắp ngữ pháp học thuật, rèn phản xạ 4 kỹ năng và bứt phá band điểm từ 3.0 lên mốc 6.5 - 7.5+ IELTS.
+            </p>
+          </div>
+          <div class="shrink-0 flex items-center gap-2 bg-white/10 px-4 py-3 rounded-2xl border border-white/10">
+            <i data-lucide="target" class="w-6 h-6 text-brandRuby-400"></i>
+            <div class="text-left text-xs">
+              <span class="block text-slate-400 font-bold uppercase text-[10px]">Mục tiêu đỉnh</span>
+              <span class="font-extrabold text-white text-sm">6.5 - 7.5+ IELTS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- --------------------------------------------------------------------- -->
+      <!-- CHẶNG 1: KIỂU CẶP THẺ CHỈ SỐ SO SÁNH ĐẦU VÀO - ĐẦU RA (SPLIT TARGET)  -->
+      <!-- --------------------------------------------------------------------- -->
+      <div id="ch-4-ielts-chay-da" class="scroll-mt-32 space-y-6">
+        
+        <!-- Chặng Title Card -->
+        <div class="bg-cyan-50/70 border-2 border-cyan-500/30 rounded-2xl p-5 sm:p-6 shadow-xs">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-cyan-200/80 pb-4 mb-4">
+            <div class="flex items-center gap-3">
+              <span class="w-10 h-10 rounded-xl bg-cyan-700 text-white font-black text-lg flex items-center justify-center shadow-md">01</span>
+              <div>
+                <span class="text-[11px] font-bold text-cyan-800 uppercase tracking-widest block">Giai Đoạn Khởi Động & Xây Nền Gốc</span>
+                <h3 class="text-lg sm:text-2xl font-heading font-black text-slate-900 uppercase">
+                  CHẶNG 1: IELTS CHẠY ĐÀ
+                </h3>
+              </div>
+            </div>
+            <span class="self-start sm:self-auto px-3.5 py-1.5 rounded-full text-xs font-black bg-cyan-700 text-white shadow-xs flex items-center gap-1.5">
+              <i data-lucide="gauge" class="w-3.5 h-3.5"></i> Cặp Thẻ Đối Soát Đầu Vào &rarr; Đầu Ra
+            </span>
+          </div>
+
+          <!-- Chặng Core Objectives -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs text-slate-700">
+            <div class="flex items-start gap-2 bg-white/90 p-3 rounded-xl border border-cyan-200/60 shadow-xs">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-700 shrink-0 mt-0.5"></i>
+              <span>Cải thiện kiến thức tiếng Anh ở trường</span>
+            </div>
+            <div class="flex items-start gap-2 bg-white/90 p-3 rounded-xl border border-cyan-200/60 shadow-xs">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-700 shrink-0 mt-0.5"></i>
+              <span>Xây gốc nền tảng ngữ pháp, từ vựng và phát âm</span>
+            </div>
+            <div class="flex items-start gap-2 bg-white/90 p-3 rounded-xl border border-cyan-200/60 shadow-xs">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-700 shrink-0 mt-0.5"></i>
+              <span>Làm quen với 4 kỹ năng & dạng bài cơ bản IELTS</span>
+            </div>
+            <div class="flex items-start gap-2 bg-white/90 p-3 rounded-xl border border-cyan-200/60 shadow-xs">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-700 shrink-0 mt-0.5"></i>
+              <span>Ứng dụng ngữ pháp, từ vựng trực tiếp vào IELTS</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- STYLE 4: SPLIT TARGET GAUGE CARDS WITH PROGRESS METERS -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+          
+          <!-- Card 1: Pre Foundation -->
+          <div onclick="openCourseModal('preFoundation')" class="interactive-card cursor-pointer group bg-white border-2 border-cyan-200 hover:border-cyan-600 rounded-3xl p-6 shadow-sm hover:shadow-xl relative overflow-hidden">
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 rounded-full bg-cyan-100 text-cyan-900 font-extrabold text-xs">
+                Chặng 1.1 Khởi Điểm
+              </span>
+              <span class="text-xs font-bold text-cyan-700 group-hover:translate-x-1 transition flex items-center gap-1">
+                Xem chi tiết &rarr;
+              </span>
+            </div>
+            <h4 class="text-xl font-heading font-black text-slate-900 group-hover:text-cyan-800 transition">
+              Khóa Pre Foundation
+            </h4>
+            <p class="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+              Củng cố chắc chắn toàn bộ ngữ pháp học đường, chuẩn hóa phiên âm quốc tế IPA và bước đầu làm quen với dạng bài thi 4 kỹ năng.
+            </p>
+
+            <!-- Gauge Progress Meter -->
+            <div class="mt-6 p-4 rounded-2xl bg-cyan-50/80 border border-cyan-200/70">
+              <div class="flex items-center justify-between text-xs font-black mb-2">
+                <span class="text-slate-500">ĐẦU VÀO: 3.0 - 3.5</span>
+                <span class="text-cyan-800">ĐẦU RA: 4.0 - 4.5 IELTS</span>
+              </div>
+              <!-- Visual Bar -->
+              <div class="w-full h-3 rounded-full bg-slate-200 overflow-hidden flex">
+                <div class="w-1/2 bg-slate-400"></div>
+                <div class="w-1/2 bg-gradient-to-r from-cyan-500 to-cyan-600"></div>
+              </div>
+              <div class="flex justify-between items-center text-[10px] text-slate-500 mt-1.5 font-semibold">
+                <span>Trình độ cơ bản</span>
+                <span class="text-cyan-700 font-bold">+1.0 Band tiến bộ</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Foundation -->
+          <div onclick="openCourseModal('foundation')" class="interactive-card cursor-pointer group bg-white border-2 border-cyan-300 hover:border-cyan-600 rounded-3xl p-6 shadow-sm hover:shadow-xl relative overflow-hidden">
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 rounded-full bg-cyan-100 text-cyan-900 font-extrabold text-xs">
+                Chặng 1.2 Xây Nền Học Thuật
+              </span>
+              <span class="text-xs font-bold text-cyan-700 group-hover:translate-x-1 transition flex items-center gap-1">
+                Xem chi tiết &rarr;
+              </span>
+            </div>
+            <h4 class="text-xl font-heading font-black text-slate-900 group-hover:text-cyan-800 transition">
+              Khóa Foundation
+            </h4>
+            <p class="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+              Ứng dụng kiến thức ngữ pháp, từ vựng vào đề thi IELTS. Tiếp cận kỹ năng đọc hiểu bài dài, luyện kỹ năng viết câu văn phong học thuật.
+            </p>
+
+            <!-- Gauge Progress Meter -->
+            <div class="mt-6 p-4 rounded-2xl bg-cyan-50/80 border border-cyan-200/70">
+              <div class="flex items-center justify-between text-xs font-black mb-2">
+                <span class="text-slate-500">ĐẦU VÀO: 4.0 - 4.5</span>
+                <span class="text-cyan-800">ĐẦU RA: 5.0 - 5.5 IELTS</span>
+              </div>
+              <!-- Visual Bar -->
+              <div class="w-full h-3 rounded-full bg-slate-200 overflow-hidden flex">
+                <div class="w-1/2 bg-slate-400"></div>
+                <div class="w-1/2 bg-gradient-to-r from-cyan-600 to-indigo-600"></div>
+              </div>
+              <div class="flex justify-between items-center text-[10px] text-slate-500 mt-1.5 font-semibold">
+                <span>Vững vàng cấu trúc đề</span>
+                <span class="text-cyan-700 font-bold">Chạm mốc 5.5 Band</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- --------------------------------------------------------------------- -->
+      <!-- CHẶNG 2: KIỂU BỆ PHÓNG TÊN LỬA / SPRINT 2.5 THÁNG (SPEEDOMETER)       -->
+      <!-- --------------------------------------------------------------------- -->
+      <div id="ch-5-ielts-tang-toc" class="scroll-mt-32 space-y-6">
+        
+        <!-- Chặng Title Card -->
+        <div class="bg-orange-50/70 border-2 border-orange-500/30 rounded-2xl p-5 sm:p-6 shadow-xs">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-orange-200/80 pb-4 mb-4">
+            <div class="flex items-center gap-3">
+              <span class="w-10 h-10 rounded-xl bg-orange-600 text-white font-black text-lg flex items-center justify-center shadow-md">02</span>
+              <div>
+                <span class="text-[11px] font-bold text-orange-800 uppercase tracking-widest block">Chiến Thuật Thi Thực Chiến</span>
+                <h3 class="text-lg sm:text-2xl font-heading font-black text-slate-900 uppercase">
+                  CHẶNG 2: IELTS TĂNG TỐC (INTENSIVE & FIGHTER A)
+                </h3>
+              </div>
+            </div>
+            <span class="self-start sm:self-auto px-3.5 py-1.5 rounded-full text-xs font-black bg-orange-600 text-white shadow-xs flex items-center gap-1.5">
+              <i data-lucide="zap" class="w-3.5 h-3.5"></i> Bệ Phóng Tăng Tốc 2.5 Tháng
+            </span>
+          </div>
+
+          <!-- Chặng Core Objectives -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs text-slate-700">
+            <div class="flex items-start gap-2 bg-white/90 p-3 rounded-xl border border-orange-200/60 shadow-xs">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-orange-600 shrink-0 mt-0.5"></i>
+              <span>Phát triển toàn diện và cân bằng cả 4 kỹ năng</span>
+            </div>
+            <div class="flex items-start gap-2 bg-white/90 p-3 rounded-xl border border-orange-200/60 shadow-xs">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-orange-600 shrink-0 mt-0.5"></i>
+              <span>Nắm được các chiến thuật làm bài thi IELTS thực chiến</span>
+            </div>
+            <div class="flex items-start gap-2 bg-white/90 p-3 rounded-xl border border-orange-200/60 shadow-xs">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-orange-600 shrink-0 mt-0.5"></i>
+              <span>Phát triển chuyên sâu 2 kỹ năng nâng cao (Writing & Speaking)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- STYLE 5: SPEEDOMETER / SPRINT LAUNCHER CARDS -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+          
+          <!-- Sprint 1: Intensive 5.5+ -->
+          <div onclick="openCourseModal('ieltsIntensive')" class="interactive-card cursor-pointer group bg-gradient-to-br from-white via-orange-50/30 to-amber-50/40 border-2 border-orange-300 hover:border-orange-500 rounded-3xl p-6 shadow-sm hover:shadow-xl relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-orange-500/10 rounded-bl-full pointer-events-none"></div>
+            
+            <div class="flex items-center justify-between mb-4">
+              <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-100 text-orange-900 font-black text-xs">
+                <i data-lucide="timer" class="w-3.5 h-3.5 text-orange-600"></i> Thời lượng: 2.5 Tháng
+              </div>
+              <span class="text-xs font-bold text-orange-700 group-hover:translate-x-1 transition flex items-center gap-1">
+                Chi tiết &rarr;
+              </span>
+            </div>
+
+            <div class="flex items-baseline gap-2">
+              <h4 class="text-2xl font-heading font-black text-slate-900 group-hover:text-orange-700 transition">
+                Khóa Intensive
+              </h4>
+              <span class="px-3 py-1 rounded-lg bg-orange-600 text-white font-black text-sm shadow-xs">
+                5.5+ IELTS
+              </span>
+            </div>
+
+            <p class="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed">
+              Tập trung hoàn thiện bài viết Task 1 và Task 2, mở rộng ý tưởng và nâng cao độ trôi chảy khi phỏng vấn Speaking Part 1 & 2.
+            </p>
+
+            <div class="mt-6 grid grid-cols-2 gap-3 text-xs">
+              <div class="p-3 rounded-2xl bg-white border border-orange-200">
+                <span class="text-[10px] font-bold text-slate-400 uppercase block">Trọng tâm 1</span>
+                <span class="font-extrabold text-slate-800 flex items-center gap-1 mt-0.5">
+                  <i data-lucide="pen-tool" class="w-3.5 h-3.5 text-orange-600"></i> Writing Task 1 & 2
+                </span>
+              </div>
+              <div class="p-3 rounded-2xl bg-white border border-orange-200">
+                <span class="text-[10px] font-bold text-slate-400 uppercase block">Trọng tâm 2</span>
+                <span class="font-extrabold text-slate-800 flex items-center gap-1 mt-0.5">
+                  <i data-lucide="mic" class="w-3.5 h-3.5 text-orange-600"></i> Speaking Fluency
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sprint 2: Fighter A 6.0+ -->
+          <div onclick="openCourseModal('fighterA')" class="interactive-card cursor-pointer group bg-gradient-to-br from-white via-orange-50/40 to-red-50/30 border-2 border-orange-400 hover:border-orange-600 rounded-3xl p-6 shadow-sm hover:shadow-xl relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-red-500/10 rounded-bl-full pointer-events-none"></div>
+
+            <div class="flex items-center justify-between mb-4">
+              <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-100 text-orange-900 font-black text-xs">
+                <i data-lucide="timer" class="w-3.5 h-3.5 text-orange-600"></i> Thời lượng: 2.5 Tháng
+              </div>
+              <span class="text-xs font-bold text-orange-700 group-hover:translate-x-1 transition flex items-center gap-1">
+                Chi tiết &rarr;
+              </span>
+            </div>
+
+            <div class="flex items-baseline gap-2">
+              <h4 class="text-2xl font-heading font-black text-slate-900 group-hover:text-orange-700 transition">
+                Khóa Fighter A
+              </h4>
+              <span class="px-3 py-1 rounded-lg bg-orange-700 text-white font-black text-sm shadow-xs">
+                6.0+ IELTS
+              </span>
+            </div>
+
+            <p class="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed">
+              Xử lý các dạng bài khó, luyện tư duy phản biện trong bài viết luận xã hội và làm chủ kỹ thuật Skimming/Scanning tốc độ cao.
+            </p>
+
+            <div class="mt-6 grid grid-cols-2 gap-3 text-xs">
+              <div class="p-3 rounded-2xl bg-white border border-orange-200">
+                <span class="text-[10px] font-bold text-slate-400 uppercase block">Chiến thuật</span>
+                <span class="font-extrabold text-slate-800 flex items-center gap-1 mt-0.5">
+                  <i data-lucide="zap" class="w-3.5 h-3.5 text-orange-600"></i> Tốc độ làm đề
+                </span>
+              </div>
+              <div class="p-3 rounded-2xl bg-white border border-orange-200">
+                <span class="text-[10px] font-bold text-slate-400 uppercase block">Tư duy</span>
+                <span class="font-extrabold text-slate-800 flex items-center gap-1 mt-0.5">
+                  <i data-lucide="brain" class="w-3.5 h-3.5 text-orange-600"></i> Lập luận phản biện
+                </span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- --------------------------------------------------------------------- -->
+      <!-- CHẶNG 3: KIỂU PODIUM VINH QUANG / ĐỈNH NÚI CHINH PHỤC (VICTORY SUMMIT) -->
+      <!-- --------------------------------------------------------------------- -->
+      <div id="ch-6-ielts-ve-dich" class="scroll-mt-32 space-y-6">
+        
+        <!-- Chặng Title Card -->
+        <div class="bg-brandRuby-50/70 border-2 border-brandRuby-500/30 rounded-2xl p-5 sm:p-6 shadow-xs">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-brandRuby-200/80 pb-4 mb-4">
+            <div class="flex items-center gap-3">
+              <span class="w-10 h-10 rounded-xl bg-brandRuby-700 text-white font-black text-lg flex items-center justify-center shadow-md">03</span>
+              <div>
+                <span class="text-[11px] font-bold text-brandRuby-800 uppercase tracking-widest block">Luyện Đề Chuyên Sâu & Thi Thật</span>
+                <h3 class="text-lg sm:text-2xl font-heading font-black text-slate-900 uppercase">
+                  CHẶNG 3: IELTS VỀ ĐÍCH (FIGHTER B & TỔNG ÔN)
+                </h3>
+              </div>
+            </div>
+            <span class="self-start sm:self-auto px-3.5 py-1.5 rounded-full text-xs font-black bg-brandRuby-700 text-white shadow-xs flex items-center gap-1.5">
+              <i data-lucide="trophy" class="w-3.5 h-3.5"></i> Đỉnh Vinh Quang & Tổng Ôn
+            </span>
+          </div>
+
+          <!-- Chặng Core Objectives -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs text-slate-700">
+            <div class="flex items-start gap-2 bg-white/90 p-3 rounded-xl border border-brandRuby-200/60 shadow-xs">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-brandRuby-700 shrink-0 mt-0.5"></i>
+              <span>Luyện đề dưới áp lực phòng thi thật, chấm chữa 1:1 chi tiết theo tiêu chí giám khảo</span>
+            </div>
+            <div class="flex items-start gap-2 bg-white/90 p-3 rounded-xl border border-brandRuby-200/60 shadow-xs">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-brandRuby-700 shrink-0 mt-0.5"></i>
+              <span>Cập nhật các đề thi thật Writing & Speaking và bộ đề dự đoán sát đề IDP/BC theo từng quý</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- STYLE 6: VICTORY PODIUM / SUMMIT MOUNTAIN CARDS -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-end pt-4">
+          
+          <!-- Podium Step 1: Fighter B (6.5+ IELTS) - Col 5 -->
+          <div onclick="openCourseModal('fighterB')" class="lg:col-span-5 interactive-card cursor-pointer group bg-white border-2 border-brandRuby-300 hover:border-brandRuby-600 rounded-3xl p-6 shadow-sm hover:shadow-glow-ruby flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-brandRuby-100 text-brandRuby-900 font-extrabold text-xs">
+                  <i data-lucide="clock" class="w-3.5 h-3.5 text-brandRuby-700"></i> Thời lượng: 2.5 Tháng
+                </span>
+                <span class="text-xs font-bold text-brandRuby-700 group-hover:translate-x-1 transition flex items-center gap-1">
+                  Chi tiết &rarr;
+                </span>
+              </div>
+              <div class="flex items-baseline gap-2">
+                <h4 class="text-2xl font-heading font-black text-slate-900 group-hover:text-brandRuby-700 transition">
+                  Fighter B
+                </h4>
+                <span class="px-3 py-1 rounded-lg bg-brandRuby-700 text-white font-black text-sm">
+                  6.5+ IELTS
+                </span>
+              </div>
+              <p class="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed">
+                Hoàn thiện bài viết chuẩn C1, làm chủ Part 3 Speaking với phong thái đĩnh đạc, ngôn từ học thuật cao cấp và độ mượt mà tự nhiên.
+              </p>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-brandRuby-800">
+              <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Sửa bài viết chi tiết 1:1</span>
+              <span class="text-slate-400">Nấc Về Đích</span>
+            </div>
+          </div>
+
+          <!-- Podium Peak: Tổng Ôn + Luyện Đề (+0.5 band) - Col 7 (Higher & Glow) -->
+          <div onclick="openCourseModal('tongOn')" class="lg:col-span-7 interactive-card cursor-pointer group bg-gradient-to-br from-brandRuby-900 via-rose-950 to-slate-950 text-white border-2 border-brandRuby-500 rounded-3xl p-7 shadow-2xl hover:shadow-glow-ruby relative overflow-hidden">
+            <div class="absolute -right-8 -top-8 w-40 h-40 bg-brandRuby-500/20 rounded-full blur-2xl pointer-events-none"></div>
+
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+              <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brandRuby-500/30 text-rose-200 border border-brandRuby-500/40 text-xs font-black">
+                <i data-lucide="flame" class="w-3.5 h-3.5 text-amber-300"></i> Thời lượng: 2 Tháng Cường Độ Cao
+              </div>
+              <div class="inline-flex items-center gap-1 text-amber-300 text-xs font-black">
+                <i data-lucide="crown" class="w-4 h-4"></i> ĐỈNH NÚI CHINH PHỤC
+              </div>
+            </div>
+
+            <div class="flex flex-wrap items-baseline gap-3">
+              <h4 class="text-2xl sm:text-3xl font-heading font-black text-white group-hover:text-rose-200 transition">
+                Tổng Ôn + Luyện Đề
+              </h4>
+              <span class="px-3.5 py-1 rounded-xl bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 font-black text-sm shadow-md">
+                +0.5 Band Điểm IELTS
+              </span>
+            </div>
+
+            <p class="text-xs sm:text-sm text-slate-300 mt-3 leading-relaxed">
+              Luyện đề chuyên sâu; cập nhật các đề thi thật Writing & Speaking và bộ đề dự đoán theo quý. Mô phỏng 100% áp lực phòng thi thực tế trên máy tính và giấy.
+            </p>
+
+            <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+              <div class="p-3.5 rounded-2xl bg-white/10 border border-white/10 flex items-center gap-2">
+                <i data-lucide="calendar" class="w-5 h-5 text-amber-300 shrink-0"></i>
+                <span>Bộ đề forecast cập nhật theo quý sát đề IDP/BC</span>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-white/10 border border-white/10 flex items-center gap-2">
+                <i data-lucide="award" class="w-5 h-5 text-amber-300 shrink-0"></i>
+                <span>Tự tin bước vào phòng thi với tâm thế thủ khoa</span>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-black text-rose-300">
+              <span>Bấm để xem kho đề & chiến lược thi</span>
+              <span class="flex items-center gap-1">Khám phá <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Interactive Detail Modal -->
+  <div id="courseModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-xs hidden transition-opacity">
+    <div class="bg-white rounded-3xl max-w-lg w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200 transform transition-all">
+      <div id="modalHeader" class="p-6 text-white rounded-t-3xl flex items-start justify-between bg-slate-900">
+        <div>
+          <span id="modalCategory" class="text-xs font-bold uppercase tracking-wider text-slate-300 block">Danh mục</span>
+          <h4 id="modalTitle" class="text-xl sm:text-2xl font-heading font-black mt-1">Tên khóa học</h4>
+          <span id="modalSub" class="inline-block mt-2 text-xs font-semibold px-2.5 py-1 rounded-full bg-white/20">4 Tuổi</span>
+        </div>
+        <button onclick="closeCourseModal()" class="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center transition">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <div class="p-6 space-y-4 text-xs sm:text-sm">
+        <div>
+          <span class="text-xs font-black text-slate-400 uppercase tracking-wider block mb-1.5">Mục tiêu & nội dung cốt lõi:</span>
+          <div id="modalDesc" class="p-3.5 bg-slate-50 rounded-xl border border-slate-200 text-slate-700 leading-relaxed font-medium"></div>
+        </div>
+
+        <div id="modalOutputSection" class="p-3.5 rounded-xl bg-amber-50 border border-amber-200">
+          <span class="text-[11px] font-bold text-amber-800 uppercase block">Cam kết chuẩn đầu ra:</span>
+          <p id="modalOutputText" class="text-slate-900 font-extrabold mt-0.5 text-xs sm:text-sm"></p>
+        </div>
+
+        <div>
+          <span class="text-xs font-black text-slate-400 uppercase tracking-wider block mb-2">Trọng tâm đào tạo:</span>
+          <ul id="modalList" class="space-y-2 text-slate-600"></ul>
+        </div>
+
+        <div class="pt-3 border-t border-slate-100 flex items-center justify-end">
+          <button onclick="closeCourseModal()" class="w-full py-3 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs sm:text-sm transition">
+            Đã hiểu & Đóng lại
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-slate-900 text-slate-400 text-xs py-10 border-t border-slate-800 text-center">
+    <div class="max-w-4xl mx-auto px-4 space-y-2">
+      <p class="text-slate-200 font-heading font-black text-sm">HỆ THỐNG BẢN ĐỒ ĐÀO TẠO ANH NGỮ ĐA PHONG CÁCH</p>
+      <p class="text-slate-500 text-xs">Trình bày cuộn dọc 1 chiều kết hợp Stepper, Tuyến Metro, Cột Trụ, Bệ Phóng & Đỉnh Vinh Quang</p>
+    </div>
+  </footer>
+
+  <!-- Script Course Data & Modal Handler -->
+  <script>
+    lucide.createIcons();
+
+    const courseDetails = {
+      // Chặng 1 - Lộ trình 1
+      kiddie: {
+        category: 'LỘ TRÌNH 1 > CHẶNG 1: HÌNH THÀNH NGÔN NGỮ',
+        title: 'Khóa Học Kiddie (4 Tuổi)',
+        badge: 'Độ tuổi: 4 Tuổi',
+        bg: 'bg-brandMint-600',
+        desc: 'Con được làm quen với tiếng Anh tự nhiên, hình thành phản xạ ngôn ngữ thông qua nhận biết hình ảnh, âm thanh, kích thích giác quan và vận động.',
+        output: 'Nhận biết thế giới xung quanh bằng tiếng Anh cơ bản, phát âm tròn vành',
+        points: [
+          'Làm quen bảng chữ cái qua bài hát, hình vẽ đa sắc màu',
+          'Phương pháp phản xạ toàn thân TPR giúp trẻ tiếp nhận ngôn ngữ không áp lực',
+          'Nhận biết âm thanh tự nhiên và các đồ vật thường ngày',
+          'Khơi gợi niềm say mê và sự hào hứng học tiếng Anh ngay từ nhỏ'
+        ]
+      },
+      birdie: {
+        category: 'LỘ TRÌNH 1 > CHẶNG 1: HÌNH THÀNH NGÔN NGỮ',
+        title: 'Khóa Học Birdie (5 Tuổi)',
+        badge: 'Độ tuổi: 5 Tuổi',
+        bg: 'bg-brandMint-600',
+        desc: 'Con được mở rộng kiến thức về từ vựng, ngữ pháp, tăng cường kỹ năng đọc và viết bên cạnh phản xạ nghe - nói. Con có thể bắt đầu viết và nhận diện mặt chữ cái, các từ đơn giản.',
+        output: 'Nhận diện mặt chữ cái, viết các từ đơn giản, giao tiếp ngắn',
+        points: [
+          'Mở rộng vốn từ vựng gia đình, trường mầm non, màu sắc, con vật',
+          'Phonics - Đánh vần tiếng Anh căn bản giúp phát âm chuẩn xác',
+          'Luyện phản xạ nghe - nói qua các mẩu đối thoại ngắn hai chiều',
+          'Rèn luyện sự tập trung và khả năng cầm bút viết chữ'
+        ]
+      },
+      newbie: {
+        category: 'LỘ TRÌNH 1 > CHẶNG 1: HÌNH THÀNH NGÔN NGỮ',
+        title: 'Khóa Học Newbie (6 Tuổi)',
+        badge: 'Độ tuổi: 6 Tuổi',
+        bg: 'bg-brandMint-600',
+        desc: 'Con nhận diện được chữ cái và số, làm quen với các chủ đề tiếng Anh quen thuộc, có khả năng nói và viết các từ vựng và các mẫu câu đơn giản.',
+        output: 'Sẵn sàng tự tin 100% bước vào Lớp 1 Tiểu học',
+        points: [
+          'Nhận diện hoàn chỉnh bảng chữ cái và các con số',
+          'Ghép từ và viết câu đơn theo quy tắc ngữ pháp nền tảng',
+          'Tự tin giới thiệu bản thân và trả lời các câu hỏi sở thích',
+          'Tạo lập thói quen chủ động học tập trước khi vào cấp 1'
+        ]
+      },
+
+      // Chặng 2 - Lộ trình 1
+      explorer1: {
+        category: 'LỘ TRÌNH 1 > CHẶNG 2: PHÁT TRIỂN KỸ NĂNG',
+        title: 'Khóa Học Explorer 1 (6 - 7 Tuổi)',
+        badge: 'Học sinh Lớp 1 - 2',
+        bg: 'bg-brandAmber-600',
+        desc: 'Giai đoạn đầu tiểu học giúp con vận dụng vốn từ vào đời sống thực tế, xóa bỏ sự rụt rè khi giao tiếp.',
+        output: 'Khả năng sử dụng 80% từ vựng đã học trong giao tiếp hàng ngày',
+        points: [
+          'Học từ vựng theo ngữ cảnh sinh hoạt gia đình, bạn bè, trường lớp',
+          'Phát triển khả năng nói câu hoàn chỉnh, tránh trả lời cụt lủn',
+          'Tập thói quen đọc các mẩu truyện tranh song ngữ ngắn',
+          'Bước khởi động hướng tới chuẩn khảo thí Cambridge Starters'
+        ]
+      },
+      explorer2: {
+        category: 'LỘ TRÌNH 1 > CHẶNG 2: PHÁT TRIỂN KỸ NĂNG',
+        title: 'Khóa Học Explorer 2 (7 - 8 Tuổi)',
+        badge: 'Chuẩn Cambridge Starters',
+        bg: 'bg-brandAmber-600',
+        desc: 'Khóa học được thiết kế theo đúng khung chuẩn khảo thí quốc tế của Đại học Cambridge dành cho học sinh tiểu học.',
+        output: 'Hoàn thành bậc Starters theo chuẩn khảo thí của Cambridge (10-15 Khiên)',
+        points: [
+          'Làm quen trọn bộ dạng đề thi Cambridge Starters (Nghe, Đọc & Viết, Nói)',
+          'Nắm chắc ngữ pháp thời hiện tại đơn, hiện tại tiếp diễn',
+          'Luyện phỏng vấn trực tiếp 1:1 với giáo viên',
+          'Vốn từ vựng đạt chuẩn Pre-A1 Châu Âu'
+        ]
+      },
+      explorer3: {
+        category: 'LỘ TRÌNH 1 > CHẶNG 2: PHÁT TRIỂN KỸ NĂNG',
+        title: 'Khóa Học Explorer 3 (8 - 9 Tuổi)',
+        badge: 'Chuẩn Cambridge Movers',
+        bg: 'bg-brandAmber-600',
+        desc: 'Mở rộng kỹ năng đọc hiểu và kể chuyện logic, giúp học sinh diễn đạt mạch lạc suy nghĩ của mình.',
+        output: 'Hoàn thành bậc Movers theo chuẩn khảo thí của Cambridge (Tương đương A1)',
+        points: [
+          'Đọc hiểu thông tin, chỉ dẫn cơ bản và các đoạn văn ngắn',
+          'Kể lại câu chuyện dựa trên hình ảnh gợi ý logic',
+          'Mở rộng cấu trúc thì quá khứ đơn và so sánh tính từ',
+          'Tự tin thuyết trình một chủ đề quen thuộc trước lớp'
+        ]
+      },
+      explorer4: {
+        category: 'LỘ TRÌNH 1 > CHẶNG 2: PHÁT TRIỂN KỸ NĂNG',
+        title: 'Khóa Học Explorer 4 (9 - 10 Tuổi)',
+        badge: 'Chuẩn Cambridge Flyers',
+        bg: 'bg-brandAmber-600',
+        desc: 'Cấp độ cao nhất của bậc tiểu học Cambridge, là cầu nối trực tiếp để bước vào giai đoạn học thuật THCS.',
+        output: 'Hoàn thành bậc Flyers theo chuẩn khảo thí của Cambridge (Tương đương A2)',
+        points: [
+          'Làm chủ hơn 1.000 từ vựng phong phú ở nhiều lĩnh vực',
+          'Viết đoạn văn ngắn 30-50 từ diễn đạt rõ ràng cảm xúc, ý kiến',
+          'Đạt điểm 9-10 tuyệt đối môn tiếng Anh tại trường tiểu học',
+          'Tạo lập tâm thế vững vàng trước khi bước vào cấp THCS'
+        ]
+      },
+
+      // Chặng 3 - Lộ trình 1
+      pioneerFoundation: {
+        category: 'LỘ TRÌNH 1 > CHẶNG 3: PHÁT TRIỂN HỌC THUẬT',
+        title: 'Khóa Pioneer Foundation (Lớp 6)',
+        badge: 'Chương trình THCS Lớp 6',
+        bg: 'bg-brandNavy-700',
+        desc: 'Hệ thống hóa kiến thức nền tảng lớp 6 của BGD. Con được định hình kĩ năng nghe - nói - đọc - viết và làm quen với các chiến thuật xử lý các dạng bài vận dụng.',
+        output: 'Điểm số 9+ trường lớp và làm chủ 12 chuyên đề ngữ pháp lớp 6',
+        points: [
+          'Hệ thống toàn bộ ngữ pháp trọng tâm sách giáo khoa',
+          'Rèn luyện kỹ năng đọc hiểu tìm ý chính và suy luận từ vựng',
+          'Hình thành chiến thuật làm bài thi trắc nghiệm không bị bẫy',
+          'Duy trì khả năng giao tiếp và phản xạ nói tự nhiên'
+        ]
+      },
+      pioneerPlus: {
+        category: 'LỘ TRÌNH 1 > CHẶNG 3: PHÁT TRIỂN HỌC THUẬT',
+        title: 'Khóa Pioneer Plus (Lớp 7)',
+        badge: 'Chương trình THCS Lớp 7',
+        bg: 'bg-brandNavy-700',
+        desc: 'Hệ thống hóa kiến thức nền tảng lớp 7, chủ đề từ vựng và ngữ pháp được mở rộng. Tăng tư duy xử lý các bài tập có tính vận dụng.',
+        output: 'Tăng cường tư duy xử lý các dạng bài tập phân loại cao',
+        points: [
+          'Chuyên đề viết lại câu (Transformation of Sentences)',
+          'Mở rộng cấu tạo từ vựng (Word Formation: Noun/Verb/Adj/Adv)',
+          'Nâng cao khả năng phân tích ngữ pháp phức hợp',
+          'Làm chủ các bài kiểm tra định kỳ học kỳ 1 và 2'
+        ]
+      },
+      pioneerIntensive: {
+        category: 'LỘ TRÌNH 1 > CHẶNG 3: PHÁT TRIỂN HỌC THUẬT',
+        title: 'Khóa Pioneer Intensive (Lớp 8)',
+        badge: 'Chương trình THCS Lớp 8',
+        bg: 'bg-brandNavy-700',
+        desc: 'Hệ thống hóa kiến thức nền tảng lớp 8, mở rộng biên độ kiến thức và phát triển kĩ năng giao tiếp sang các chủ đề chuyên sâu và trừu tượng hơn.',
+        output: 'Tư duy phản biện học thuật & tiền đề luyện thi IELTS',
+        points: [
+          'Tiếp cận từ vựng mang tính trừu tượng: Môi trường, Công nghệ, Xã hội',
+          'Luyện kỹ năng viết đoạn văn nghị luận ngắn nêu quan điểm',
+          'Luyện nghe các bản tin tốc độ chuẩn người bản ngữ',
+          'Chuẩn bị nền tảng để chuyển tiếp sang IELTS Chạy Đà'
+        ]
+      },
+      pioneerMaster: {
+        category: 'LỘ TRÌNH 1 > CHẶNG 3: PHÁT TRIỂN HỌC THUẬT',
+        title: 'Khóa Pioneer Master (Lớp 9)',
+        badge: 'Luyện Thi Tuyển Sinh Vào 10',
+        bg: 'bg-brandNavy-900',
+        desc: 'Hệ thống hóa kiến thức nền tảng lớp 9, làm chủ chiến thuật xử lý các dạng bài trong đề thi vào 10. Con được nâng cao 4 kỹ năng giao tiếp: nghe - nói - đọc - viết.',
+        output: 'Đỗ điểm cao Tiếng Anh vào 10 THPT công lập & trường chuyên',
+        points: [
+          'Giải mã và luyện các bộ đề thi vào 10 chính thức của các Sở GD&ĐT',
+          'Bí kíp tránh bẫy ngữ âm, trọng âm, tìm lỗi sai và giới từ',
+          'Đạt điểm tối đa phần đọc hiểu và viết lại câu',
+          'Đạt phong độ tốt nhất trước kỳ thi chuyển cấp quan trọng'
+        ]
+      },
+
+      // Chặng 1 - Lộ trình 2: IELTS Chạy đà
+      preFoundation: {
+        category: 'LỘ TRÌNH 2 > CHẶNG 1: IELTS CHẠY ĐÀ',
+        title: 'Khóa Học Pre Foundation',
+        badge: 'Đầu vào: 3.0 - 3.5 | Đầu ra: 4.0 - 4.5',
+        bg: 'bg-cyan-700',
+        desc: 'Cải thiện kiến thức tiếng Anh ở trường; Xây gốc kiến thức nền tảng về ngữ pháp, từ vựng và phát âm; Bước đầu làm quen với 4 kỹ năng.',
+        output: 'Cam kết đầu ra: 4.0 - 4.5 IELTS',
+        points: [
+          'Lấy lại toàn bộ gốc ngữ pháp căn bản, chấm dứt tình trạng mất gốc',
+          'Nạp 1.200 từ vựng cốt lõi thường gặp nhất trong đề thi IELTS',
+          'Chuẩn hóa phát âm IPA từng nguyên âm, phụ âm và trọng âm từ',
+          'Làm quen dạng bài nghe điền từ và đọc hiểu ngắn'
+        ]
+      },
+      foundation: {
+        category: 'LỘ TRÌNH 2 > CHẶNG 1: IELTS CHẠY ĐÀ',
+        title: 'Khóa Học Foundation',
+        badge: 'Đầu vào: 4.0 - 4.5 | Đầu ra: 5.0 - 5.5',
+        bg: 'bg-cyan-700',
+        desc: 'Bước đầu làm quen với 4 kỹ năng và các dạng bài cơ bản trong đề thi IELTS; Ứng dụng kiến thức ngữ pháp, từ vựng vào IELTS.',
+        output: 'Cam kết đầu ra: 5.0 - 5.5 IELTS',
+        points: [
+          'Nắm chắc kỹ thuật Skimming & Scanning trong bài đọc IELTS Reading',
+          'Làm quen phương pháp viết Writing Task 1 phân tích số liệu biểu đồ',
+          'Phản xạ trả lời mạch lạc các chủ đề thân thuộc ở Speaking Part 1',
+          'Luyện nghe bắt từ khóa (Keywords) trong Listening Section 1 & 2'
+        ]
+      },
+
+      // Chặng 2 - Lộ trình 2: IELTS Tăng tốc
+      ieltsIntensive: {
+        category: 'LỘ TRÌNH 2 > CHẶNG 2: IELTS TĂNG TỐC',
+        title: 'Khóa Học Intensive (Mục tiêu 5.5+ IELTS)',
+        badge: 'Thời lượng: 2.5 Tháng',
+        bg: 'bg-orange-600',
+        desc: 'Phát triển toàn diện 4 kỹ năng; Nắm được các chiến thuật làm bài thi IELTS; Phát triển chuyên sâu hai kỹ năng nâng cao (Writing & Speaking).',
+        output: 'Mục tiêu: Đạt 5.5+ IELTS toàn diện 4 kỹ năng',
+        points: [
+          'Làm chủ tất cả các dạng biểu đồ trong Writing Task 1',
+          'Xây dựng bố cục 4 đoạn chuẩn xác cho Writing Task 2',
+          'Mở rộng ý tưởng phát triển câu trả lời dài ở Speaking Part 2',
+          'Xử lý dạng bài True/False/Not Given trong Reading'
+        ]
+      },
+      fighterA: {
+        category: 'LỘ TRÌNH 2 > CHẶNG 2: IELTS TĂNG TỐC',
+        title: 'Khóa Học Fighter A (Mục tiêu 6.0+ IELTS)',
+        badge: 'Thời lượng: 2.5 Tháng',
+        bg: 'bg-orange-600',
+        desc: 'Phát triển tư duy phản biện, làm chủ các dạng bài khó và mở rộng vốn từ vựng học thuật mang tính phân loại cao.',
+        output: 'Mục tiêu: Đạt 6.0+ IELTS thực chiến',
+        points: [
+          'Kỹ thuật viết bài bản dạng khó: Bản đồ (Map) và Quy trình (Process)',
+          'Tư duy lập luận phản biện mạch lạc cho các đề Writing Task 2 phức tạp',
+          'Nâng cao độ lưu loát (Fluency) và vốn từ vựng Collocations học thuật',
+          'Cải thiện tốc độ làm bài thi Nghe và Đọc hiểu'
+        ]
+      },
+
+      // Chặng 3 - Lộ trình 2: IELTS Về đích
+      fighterB: {
+        category: 'LỘ TRÌNH 2 > CHẶNG 3: IELTS VỀ ĐÍCH',
+        title: 'Khóa Học Fighter B (Mục tiêu 6.5+ IELTS)',
+        badge: 'Thời lượng: 2.5 Tháng',
+        bg: 'bg-brandRuby-700',
+        desc: 'Phát triển chuyên sâu hai kỹ năng nâng cao (Writing & Speaking). Cập nhật các đề thi thật và bộ đề dự đoán theo quý.',
+        output: 'Mục tiêu: Chinh phục mốc 6.5 - 7.0+ IELTS',
+        points: [
+          'Nâng cấp cấu trúc câu phức và từ vựng band C1 chuẩn xác ngữ cảnh',
+          'Tự tin tranh luận và trình bày quan điểm sâu sắc ở Speaking Part 3',
+          'Chấm và sửa bài viết chi tiết 1:1 theo 4 tiêu chí của giám khảo IDP/BC',
+          'Cập nhật bộ forecast đề thi Speaking & Writing theo từng quý'
+        ]
+      },
+      tongOn: {
+        category: 'LỘ TRÌNH 2 > CHẶNG 3: IELTS VỀ ĐÍCH',
+        title: 'Khóa Tổng Ôn + Luyện Đề',
+        badge: 'Thời lượng: 2 Tháng',
+        bg: 'bg-brandRuby-900',
+        desc: 'Luyện đề; Cập nhật các đề thi thật Writing và Speaking và bộ đề dự đoán theo quý. Rèn luyện tâm lý phòng thi vững vàng.',
+        output: 'Mục tiêu: Tăng thêm +0.5 band điểm IELTS',
+        points: [
+          'Thi thử Mock Test định kỳ hàng tuần với áp lực bấm giờ thi thật',
+          'Chữa bài trực tiếp 1:1 khắc phục triệt để các lỗi sai vi mô',
+          'Luyện tập trực tiếp trên hệ thống máy tính chuẩn kỳ thi IELTS on Computer',
+          'Cam kết đồng hành bứt phá band điểm trước ngày thi chính thức'
+        ]
+      }
+    };
+
+    const modal = document.getElementById('courseModal');
+
+    function openCourseModal(key) {
+      const data = courseDetails[key];
+      if (!data) return;
+
+      document.getElementById('modalCategory').innerText = data.category;
+      document.getElementById('modalTitle').innerText = data.title;
+      document.getElementById('modalSub').innerText = data.badge;
+      document.getElementById('modalDesc').innerText = data.desc;
+      document.getElementById('modalOutputText').innerText = data.output;
+
+      const header = document.getElementById('modalHeader');
+      header.className = `p-6 text-white rounded-t-3xl flex items-start justify-between ${data.bg}`;
+
+      const list = document.getElementById('modalList');
+      list.innerHTML = '';
+      data.points.forEach(pt => {
+        const li = document.createElement('li');
+        li.className = 'flex items-start gap-2 text-xs sm:text-sm';
+        li.innerHTML = `<i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i><span>${pt}</span>`;
+        list.appendChild(li);
+      });
+
+      lucide.createIcons();
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeCourseModal() {
+      modal.classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeCourseModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeCourseModal();
+    });
+  </script>
+</body>
+</html>
